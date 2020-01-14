@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CoreConsoleClient1": {
+      "commandName": "Project",
+      "commandLineArgs": "https://localhost:44336/api/Files /up ../../../sendfiles/t2345.jpg"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BookLibrary.Models.Block>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Topic Blocks</h1>
+
+<p>
+  @if (User.IsInRole("Admin"))
+  {
+    <a asp-action="CreateBlock">Create New Block</a>
+
+    <a asp-action="Records">&nbsp;&nbsp;Edit Comments</a>
+  }
+</p>
+<table class="a" >
+    <thead>
+      <tr>
+        <th colspan="2">
+          @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th colspan="3">
+          @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th colspan="14" >
+          @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+      <tr>
+        <td class="but" colspan="2">
+          @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="but"colspan="3">
+          <img src="@Url.Content(item.Photo)" class="portrait" height="200" width="200">
+          @*@Html.DisplayFor(modelItem => item.Photo)*@
+        </td>
+        <td class="but" colspan="12">
+          <div class="text1">
+            @Html.DisplayFor(modelItem => item.Text)
+          </div>
+        </td>
+        <td class="but" colspan="2">
+          @if (User.IsInRole("Admin"))
+          {
+          <div>
+            <a asp-action="EditBlock" asp-route-id="@item.BlockId">Edit</a>
+          </div>
+          <div>
+            <a asp-action="DeleteBlock" asp-route-id="@item.BlockId">Delete</a>
+          </div>
+
+          }
+          <div>
+            <a asp-action="BlockDetails" asp-route-id="@item.BlockId">Details</a>
+          </div>
+          <div>
+            <a asp-action="AddRecord" asp-route-id="@item.BlockId">Comment</a>
+          </div>
+          
+        </td>
+        </tr>
+}
+    </tbody>
+</table>

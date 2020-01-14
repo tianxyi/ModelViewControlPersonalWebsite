@@ -1,0 +1,145 @@
+﻿body {
+  margin: 2em;
+}
+
+body {
+  color: #993333;
+  background: #eeeeee;
+}
+/* RGB in hex */
+body {
+  font-family: tahoma, sans-serif;
+  font-size: large;
+}
+
+li {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* defining style classes, applied to any element */
+
+.title {
+  text-align: center;
+}
+.buttonleft {
+  float: left;
+  border-radius: 50px;           /*css3*/
+  box-shadow: 5px 5px 5px #888888   ;
+}
+.buttonright {
+  float: right;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.emp {
+  font-weight: bold;
+  background-color: cornsilk;
+}
+
+.code {
+  font-family: Consolas, monospace;
+  font-weight: bold;
+}
+.portrait{
+  width:128px;
+  height:200px;
+}
+/*.indent {
+  padding-left: 25px;
+}*/
+.photo {
+  border-radius: 25px;
+  border: 2px solid #993333;
+  margin-top: 1px;
+  margin: auto;
+}
+.but{
+  width:20px;
+}
+/*div {
+  border-radius: 25px;
+  border: 2px solid #993333;
+  margin-top:1px;
+}*/
+.text1 {
+  
+  word-wrap: break-word;
+  word-break:normal;
+  height:190px;
+  overflow:hidden;
+  
+  display:-webkit-box;
+  -webkit-line-clamp:7;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.detail{
+  width:100%;
+  
+  word-wrap:break-word;
+  line-height:2;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+td.cc {
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+td.but {
+  word-wrap: break-word;
+  overflow: hidden;
+  height:200px;
+  text-overflow: ellipsis;
+}
+footer {
+  height:35px;
+  position: fixed;
+  width: 100%;
+  background-color: #eeeeee;
+  text-align: center;
+  color: black;
+  bottom:0;
+}
+
+sizer-button {
+  background-color: #eeeeee;
+  color: #333333;
+  width: 1.5em;
+  height: 0.75em;
+  line-height: 0.55em; /*vertically align text*/
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  border: 1px solid black;
+  font-family: 'Comic Sans MS';
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 1px #cccccc;
+}
+
+  /* what happens when mouse hovers over sizer-button */
+  sizer-button:hover {
+    background-color: #dddddd;
+    box-shadow: -2px -2px 2px 1px #cccccc;
+    cursor: pointer;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+  }
+
+/* Flexbox to hold sizer buttons and title */
+sizerbutton-container {
+  display: flex;
+}

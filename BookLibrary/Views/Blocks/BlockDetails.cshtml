@@ -1,0 +1,76 @@
+﻿@model BookLibrary.Models.Block
+
+@{
+  ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div>
+  <h3>@Html.DisplayFor(model => model.Title)</h3>
+</div>
+<div>
+  @Html.DisplayNameFor(model => model.Genre)
+  :
+  @Html.DisplayFor(model => model.Genre)
+</div>
+<hr />
+<div class="detail">
+  <pre>
+  @Html.DisplayFor(model => model.Text)
+  </pre>
+</div>
+
+<div style="margin-top:15px;">
+  <img height="600" width="800" src="@Url.Content(Model.Photo)">
+</div>
+
+
+
+
+<sizerbutton-container>
+  <sizer-button onclick="biggerImage('theImage')">+</sizer-button>
+  <sizer-button onclick="smallerImage('theImage')">-</sizer-button>
+  <sizer-button onclick="add2(1)">h</sizer-button>
+  @*<title-block style="font-family:'Comic Sans MS'; font-weight:normal; padding-left:0px;">
+    kuzma
+  </title-block>*@
+</sizerbutton-container>
+
+<div style="margin-top:15px; margin-bottom:15px" >
+  <img src="@Url.Content(Model.Diagram)" id="theImage">
+</div>
+<div>
+  <h4 style="margin-bottom: 10px;">Comments</h4>
+</div>
+
+<table style="color:black;font-size:small" >
+  @foreach (var lct in Model.Records)//models has lecture collections one to many many to many  many to many is two one to many
+  {
+    <tr style="border-bottom:1px solid #993333;" >
+      <td style="float:left" ;>
+        @Html.Label(lct.Comment)
+      </td>
+
+
+      <td style="float:right;">
+        @Html.Name(lct.Name)
+        @Html.Label(lct.Time.ToString("HH:mm:ss MM-dd-yyyy"))
+      </td>
+
+
+    </tr>
+  }
+</table>
+
+
+<div>
+
+  @if (User.IsInRole("Admin"))
+  {
+    <a asp-action="EditBlock" asp-route-id="@Model.BlockId">Edit </a>
+  }
+  &nbsp;&nbsp;
+  <a asp-action="AddRecord" asp-route-id="@Model.BlockId">Comment  </a>
+  &nbsp;&nbsp;
+  <a asp-action="Index">Back</a>
+</div>
